@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BusGo - Book Bus Tickets Online</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <span class="logo-icon">🚌</span>
+      <span class="logo-text">RedBus</span>
+    </a>
+    <nav class="nav">
+      <a href="#">Help</a>
+      <a href="#">Manage Booking</a>
+      <a href="#" class="btn btn-outline">Sign In</a>
+      <a href="#" class="btn btn-primary">Register</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Book Bus Tickets Across the Country</h1>
+    <p class="subtitle">Travel comfortably with 5,000+ bus operators. Easy booking, secure payment.</p>
+
+    <div class="search-card">
+      <div class="tabs">
+        <button class="tab active" data-tab="oneway">One Way</button>
+        <button class="tab" data-tab="round">Round Trip</button>
+      </div>
+
+      <form class="search-form" id="searchForm">
+        <div class="form-row">
+          <div class="form-field">
+            <label>FROM</label>
+            <input type="text" id="fromCity" placeholder="Departure city" value="New York" required />
+          </div>
+          <button type="button" class="swap-btn" title="Swap cities">⇄</button>
+          <div class="form-field">
+            <label>TO</label>
+            <input type="text" id="toCity" placeholder="Destination city" value="Boston" required />
+          </div>
+          <div class="form-field">
+            <label>DATE</label>
+            <input type="date" id="travelDate" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-search">Search Buses</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="features container">
+  <div class="feature">
+    <div class="feature-icon">🛡️</div>
+    <h3>Secure Booking</h3>
+    <p>100% safe and secure payments</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">🎫</div>
+    <h3>Instant Confirmation</h3>
+    <p>Get tickets on your phone instantly</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">⭐</div>
+    <h3>Trusted Operators</h3>
+    <p>Verified bus operators nationwide</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">💰</div>
+    <h3>Best Prices</h3>
+    <p>Lowest fares guaranteed</p>
+  </div>
+</section>
+
+<section class="results container" id="resultsSection" style="display:none;">
+  <h2>Available Buses</h2>
+  <div class="results-filters">
+    <span class="filter-chip active">All</span>
+    <span class="filter-chip">AC</span>
+    <span class="filter-chip">Non-AC</span>
+    <span class="filter-chip">Sleeper</span>
+    <span class="filter-chip">Seater</span>
+  </div>
+  <div id="busList" class="bus-list"></div>
+</section>
+
+<!-- Booking Modal -->
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h2>Complete Your Booking</h2>
+    <div class="booking-summary" id="bookingSummary"></div>
+    <form class="booking-form" id="bookingForm">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Passenger Name</label>
+          <input type="text" required placeholder="John Doe" />
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" required placeholder="you@example.com" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Phone</label>
+          <input type="tel" required placeholder="+1 234 567 8900" />
+        </div>
+        <div class="form-field">
+          <label>Number of Seats</label>
+          <input type="number" min="1" max="6" value="1" id="seatsInput" required />
+        </div>
+      </div>
+      <div class="price-display" id="priceDisplay"></div>
+      <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+    </form>
+  </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal" id="confirmModal">
+  <div class="modal-content small">
+    <div class="success-icon">✓</div>
+    <h2>Booking Confirmed!</h2>
+    <p id="confirmText"></p>
+    <button class="btn btn-primary" id="closeConfirm">Done</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <h4>BusGo</h4>
+      <p>Your trusted partner for bus travel across the country.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a href="#">Help Center</a>
+      <a href="#">Refund Policy</a>
+      <a href="#">FAQs</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 BusGo. All rights reserved.</div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
